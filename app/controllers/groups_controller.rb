@@ -3,13 +3,17 @@ class GroupsController < ApplicationController
     @groups = Group.all
   end
 
+  def show
+    @group = Group.find(params[:id])
+  end
+
   def new
-    @groups = Group.all
+    @group = Group.new
   end
 
   def create
     @group = Group.new(group_params)
-    @group.sava
+    @group.save
 
       redirect_to groups_path
     end
